@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Mail, Phone, MapPin, Zap } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -22,7 +23,14 @@ export default function Footer() {
         {/* Brand details */}
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <Zap className="w-5 h-5 text-primary" fill="currentColor" />
+            <div className="relative w-8 h-8 flex items-center justify-center border border-outline bg-surface-container-lowest">
+              <Image
+                src="/images/nge_logo.png"
+                alt="New Grace Electrical Logo"
+                fill
+                className="object-contain p-1 filter brightness-100 contrast-125"
+              />
+            </div>
             <span className="font-display text-base font-bold tracking-wider uppercase text-surface">
               NEW GRACE ELECTRICAL
             </span>

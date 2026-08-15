@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,8 +72,13 @@ export default function Header() {
             onClick={(e) => handleNavClick(e, "home")}
             className="flex items-center gap-2 group cursor-pointer"
           >
-            <div className="bg-primary/10 p-1.5 border border-primary/20 flex items-center justify-center">
-              <Zap className="w-6 h-6 text-primary" fill="currentColor" />
+            <div className="relative w-8 h-8 flex items-center justify-center border border-outline bg-surface-container-lowest">
+              <Image
+                src="/images/nge_logo.png"
+                alt="New Grace Electrical Logo"
+                fill
+                className="object-contain p-1 filter brightness-100 contrast-125"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-display text-xl font-bold tracking-tight text-on-background leading-none">
