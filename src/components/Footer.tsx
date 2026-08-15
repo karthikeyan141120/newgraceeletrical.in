@@ -23,12 +23,12 @@ export default function Footer() {
         {/* Brand details */}
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <div className="relative w-8 h-8 flex items-center justify-center border border-outline bg-surface-container-lowest">
+            <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
               <Image
                 src="/images/nge_logo.png"
                 alt="New Grace Electrical Logo"
                 fill
-                className="object-contain p-1 filter brightness-100 contrast-125"
+                className="object-contain filter brightness-100 contrast-125"
               />
             </div>
             <span className="font-display text-base font-bold tracking-wider uppercase text-surface">

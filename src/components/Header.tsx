@@ -72,12 +72,12 @@ export default function Header() {
             onClick={(e) => handleNavClick(e, "home")}
             className="flex items-center gap-2 group cursor-pointer"
           >
-            <div className="relative w-8 h-8 flex items-center justify-center border border-outline bg-surface-container-lowest">
+            <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
               <Image
                 src="/images/nge_logo.png"
                 alt="New Grace Electrical Logo"
                 fill
-                className="object-contain p-1 filter brightness-100 contrast-125"
+                className="object-contain filter brightness-100 contrast-125"
               />
             </div>
             <div className="flex flex-col">
