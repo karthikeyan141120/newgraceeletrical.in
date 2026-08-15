@@ -41,6 +41,9 @@ export default function Footer() {
           <p className="font-sans text-[10px] text-surface-dim opacity-50">
             © {new Date().getFullYear()} NEW GRACE ELECTRICAL. ALL RIGHTS RESERVED.
           </p>
+          <p className="font-mono text-[9px] text-surface-dim opacity-40">
+            GSTIN: 33AFZPT8471Q1ZO
+          </p>
         </div>
 
         {/* Links & Quick Contact */}

@@ -36,7 +36,12 @@ export default function Contact() {
     }, 3000);
   };
 
-  const phones = ["+91 97869 83972", "+91 84891 85157", "+91 88384 54514"];
+  const phones = [
+    "+91 97869 83972",
+    "+91 84388 41784",
+    "+91 84891 85157",
+    "+91 88384 54514"
+  ];
 
   return (
     <section id="contact" className="py-20 bg-surface-container-low border-b border-outline scroll-mt-20">
@@ -152,6 +157,27 @@ export default function Contact() {
                       Sy.No. 571/1B, Shed No.1, SREE NAGAR, Behind SAI BABA Temple, Hosur - 635 109, Tamil Nadu, India.
                     </p>
                   </div>
+                </div>
+
+                <div className="flex gap-4 border-t border-outline/50 pt-4">
+                  <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-display text-xs font-bold text-on-background uppercase tracking-wide">
+                      Rajeshwari Layout Address
+                    </h4>
+                    <p className="font-sans text-xs text-secondary leading-relaxed mt-1">
+                      Sy.No.44/Q4, Plot No.30, Rajeshwari Layout, Hosur - 635 126, Tamil Nadu, India.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-t border-outline/50 pt-4 text-xs font-sans text-secondary leading-relaxed">
+                  <span className="font-display text-[10px] font-bold text-on-background uppercase tracking-wider block">
+                    GSTIN Registration
+                  </span>
+                  <span className="font-mono font-bold text-on-background mt-1 block">
+                    33AFZPT8471Q1ZO
+                  </span>
                 </div>
               </div>
             </div>

@@ -8,6 +8,8 @@ import {
   Zap,
   Layers,
   Wrench,
+  Grid,
+  Construction,
 } from "lucide-react";
 
 export default function Services() {
@@ -53,6 +55,20 @@ export default function Services() {
       code: "06 // TRNK",
       description:
         "End-to-end electrical infrastructure projects from initial site survey and design to cabinet rigging, civil works, transformer installations, and testing.",
+    },
+    {
+      title: "Cable Tray Manufacturing",
+      icon: Grid,
+      code: "07 // TRAY",
+      description:
+        "Manufactured in-house from sheet steel and structural sections. Includes perforated and ladder-type trays, hot-dip galvanized for indoor and outdoor installations.",
+    },
+    {
+      title: "Structural Steel & Site Erection",
+      icon: Construction,
+      code: "08 // SITE",
+      description:
+        "Crane-assisted erection of heavy steel structures, gantries, mezzanine platforms, and industrial grating, delivered complete from design through execution.",
     },
   ];
 

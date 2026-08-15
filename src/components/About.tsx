@@ -59,7 +59,7 @@ export default function About() {
               {/* Profile Image Frame */}
               <div className="aspect-[4/3] w-full overflow-hidden border border-outline bg-surface-container-high relative group">
                 <Image
-                  src="/images/slide8_13.jpg"
+                  src="/images/slide1_0.jpg"
                   alt="A. Thangavel, Proprietor"
                   fill
                   className="object-cover filter grayscale transition-all duration-500 group-hover:grayscale-0"
