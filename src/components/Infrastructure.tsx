@@ -62,6 +62,34 @@ export default function Infrastructure() {
       desc: "Precision manual arc welding for panel frame reinforcement.",
       gridSpan: "md:col-span-2 md:row-span-1",
     },
+    {
+      title: "Assembly & Testing Bay",
+      category: "In-house QC",
+      image: "/images/slide5_6.jpg",
+      desc: "Final busbar fitment, mechanical alignment, and control wiring diagnostics area.",
+      gridSpan: "md:col-span-1 md:row-span-1",
+    },
+    {
+      title: "Turret Punch Machine View",
+      category: "Fabrication Facility",
+      image: "/images/slide6_10.jpg",
+      desc: "Secondary heavy-duty punching machinery optimized for high-volume layouts.",
+      gridSpan: "md:col-span-1 md:row-span-1",
+    },
+    {
+      title: "CNC Bending Work Station",
+      category: "Enclosure Construction",
+      image: "/images/slide6_11.jpg",
+      desc: "Multi-axis press-brake bending station for complex cabinet angles.",
+      gridSpan: "md:col-span-1 md:row-span-1",
+    },
+    {
+      title: "CNC Shearing Station",
+      category: "Precision Cutting",
+      image: "/images/slide6_12.jpg",
+      desc: "High-accuracy hydraulic shearing workstation for sheet steel blank preparation.",
+      gridSpan: "md:col-span-1 md:row-span-1",
+    },
   ];
 
   return (
