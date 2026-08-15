@@ -112,38 +112,61 @@ export default function Infrastructure() {
           </p>
         </div>
 
-        {/* Masonry Tiled Photo Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
-          {facilityItems.map((item, index) => (
-            <div
-              key={index}
-              className={`group bg-surface-container-high border border-outline relative overflow-hidden tech-shadow flex flex-col justify-end ${item.gridSpan}`}
-            >
-              {/* Image */}
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 contrast-110"
-              />
-
-              {/* Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-on-background/90 via-on-background/40 to-transparent z-10" />
-
-              {/* Info Overlay */}
-              <div className="relative z-20 p-6 space-y-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <span className="bg-primary text-surface text-[9px] font-sans font-bold tracking-widest px-2 py-0.5 uppercase inline-block">
-                  {item.category}
-                </span>
-                <h3 className="font-display text-base font-bold text-surface uppercase">
-                  {item.title}
-                </h3>
-                <p className="font-sans text-[11px] text-surface-dim opacity-0 group-hover:opacity-100 transition-opacity duration-500 leading-relaxed max-w-md">
-                  {item.desc}
-                </p>
+        {/* Two Column Layout: Slide 3 image checklist + Masonry Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Official PPT Infrastructure List Image */}
+          <div className="lg:col-span-4 sticky top-28 space-y-6">
+            <div className="bg-surface border border-outline p-6 tech-shadow">
+              <span className="text-[10px] font-sans font-bold tracking-widest text-primary uppercase block mb-3">
+                In-House Infrastructure List
+              </span>
+              <div className="aspect-[3/4] w-full overflow-hidden relative border border-outline bg-surface-container-high mb-6">
+                <Image
+                  src="/images/slide3_infra.png"
+                  alt="In-House Infrastructure Checklist"
+                  fill
+                  className="object-cover filter contrast-115 brightness-95"
+                />
               </div>
+              <p className="font-sans text-xs text-secondary leading-relaxed">
+                NGE's certified in-house tooling line-up ensures that every enclosure fabrication, press-bend operation, and welding task is verified to strict tolerances in our Hosur facility.
+              </p>
             </div>
-          ))}
+          </div>
+
+          {/* Right Column: Masonry Tiled Photo Grid */}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 auto-rows-[280px]">
+            {facilityItems.map((item, index) => (
+              <div
+                key={index}
+                className={`group bg-surface-container-high border border-outline relative overflow-hidden tech-shadow flex flex-col justify-end ${item.gridSpan}`}
+              >
+                {/* Image */}
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 contrast-110"
+                />
+
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-on-background/90 via-on-background/40 to-transparent z-10" />
+
+                {/* Info Overlay */}
+                <div className="relative z-20 p-6 space-y-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <span className="bg-primary text-surface text-[9px] font-sans font-bold tracking-widest px-2 py-0.5 uppercase inline-block">
+                    {item.category}
+                  </span>
+                  <h3 className="font-display text-base font-bold text-surface uppercase">
+                    {item.title}
+                  </h3>
+                  <p className="font-sans text-[11px] text-surface-dim opacity-0 group-hover:opacity-100 transition-opacity duration-500 leading-relaxed max-w-md">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

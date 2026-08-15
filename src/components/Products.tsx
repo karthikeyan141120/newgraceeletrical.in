@@ -28,7 +28,7 @@ export default function Products() {
       voltage: "11 kV to 33 kV",
       chassis: "NEMA 3R / IP55",
       rating: "Up to 3150A",
-      image: "/images/slide3_1.jpg",
+      image: "/images/slide4_panel_row.png",
       specs: [
         "Rated Voltage: 11 kV - 33 kV",
         "Short Time Current: 26.3 kA for 3 sec",
@@ -50,7 +50,7 @@ export default function Products() {
       voltage: "12 kV to 36 kV",
       chassis: "IP42 / Indoor",
       rating: "630A to 2000A",
-      image: "/images/slide3_1.jpg",
+      image: "/images/slide4_panel_row.png",
       specs: [
         "Rated Voltage: 12 kV - 36 kV",
         "Impulse Withstand: 75 kV / 170 kV",
@@ -72,7 +72,7 @@ export default function Products() {
       voltage: "415 V to 690 V",
       chassis: "Form 4b / IP54",
       rating: "Up to 6300A",
-      image: "/images/slide3_1.jpg",
+      image: "/images/slide4_panel_row.png",
       specs: [
         "Rated Voltage: 415 V - 690 V AC",
         "Busbar System: Tinned Copper / Aluminum busbars",
@@ -116,7 +116,7 @@ export default function Products() {
       voltage: "415 V AC",
       chassis: "Form 3b / IP54",
       rating: "Draw-out & Fixed",
-      image: "/images/slide3_1.jpg",
+      image: "/images/slide4_panel_row.png",
       specs: [
         "Rated Voltage: 415 V",
         "Feeder Types: DOL / Star-Delta / Reversing",
