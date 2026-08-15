@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
               <Image
-                src="/images/nge_logo.png"
+                src="/images/nge_logo_official.png"
                 alt="New Grace Electrical Logo"
                 fill
                 className="object-contain filter brightness-100 contrast-125"
