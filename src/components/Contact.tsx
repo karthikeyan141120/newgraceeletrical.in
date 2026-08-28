@@ -154,7 +154,7 @@ export default function Contact() {
             {/* Address Cards */}
             <div className="bg-surface border border-outline p-6 tech-shadow space-y-6">
               <h3 className="font-display text-sm font-bold text-on-background tracking-wider uppercase border-b border-outline pb-2">
-                Facility Locations
+                Manufacturing & Engineering Facility
               </h3>
 
               <div className="space-y-6">
@@ -162,31 +162,7 @@ export default function Contact() {
                   <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-display text-xs font-bold text-on-background uppercase tracking-wide">
-                      Head Office (H.O)
-                    </h4>
-                    <p className="font-sans text-xs text-secondary leading-relaxed mt-1">
-                      Plot No.46 New SIDCO Industrial Estate, SREE NAGAR, Behind Telephone Exchange, Hosur - 635 109, Tamil Nadu, India.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 border-t border-outline/50 pt-4">
-                  <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-display text-xs font-bold text-on-background uppercase tracking-wide">
-                      Branch Facility
-                    </h4>
-                    <p className="font-sans text-xs text-secondary leading-relaxed mt-1">
-                      Sy.No. 571/1B, Shed No.1, SREE NAGAR, Behind SAI BABA Temple, Hosur - 635 109, Tamil Nadu, India.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 border-t border-outline/50 pt-4">
-                  <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-display text-xs font-bold text-on-background uppercase tracking-wide">
-                      Rajeshwari Layout Address
+                      Rajeshwari Layout Facility
                     </h4>
                     <p className="font-sans text-xs text-secondary leading-relaxed mt-1">
                       Sy.No.44/Q4, Plot No.30, Rajeshwari Layout, Hosur - 635 126, Tamil Nadu, India.
@@ -323,7 +299,7 @@ export default function Contact() {
             <div className="bg-surface border border-outline p-2 tech-shadow relative aspect-[21/9] overflow-hidden flex flex-col justify-end min-h-[300px]">
               <iframe
                 title="New Grace Electrical Google Map Location"
-                src="https://maps.google.com/maps?q=New%20Grace%20Electrical,%20Sree%20Nagar,%20Behind%20Telephone%20Exchange,%20Hosur&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Rajeshwari%20Layout,%20Hosur,%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed"
                 className="absolute inset-0 w-full h-full border-0 z-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
                 allowFullScreen
                 loading="lazy"
@@ -333,11 +309,11 @@ export default function Contact() {
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 bg-primary animate-ping rounded-full inline-block" />
                   <span className="font-display text-[10px] font-bold text-on-background uppercase tracking-wide">
-                    SREE NAGAR, HOSUR, INDIA
+                    RAJESHWARI LAYOUT, HOSUR, INDIA
                   </span>
                 </div>
                 <a
-                  href="https://maps.google.com/?q=Sree+Nagar+Behind+Telephone+Exchange+Hosur+SIDCO"
+                  href="https://maps.google.com/?q=Rajeshwari+Layout+Hosur"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-sans text-[10px] font-bold text-primary hover:underline uppercase"
