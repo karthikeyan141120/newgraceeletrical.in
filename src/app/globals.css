@@ -19,7 +19,10 @@
   --color-outline-variant: #bdcabc;
   
   --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-plus-jakarta-sans);
+  
+  --color-accent: #e5a93b;
+  --color-on-accent: #1a1c1a;
   
   --spacing-stack-sm: 16px;
   --spacing-stack-md: 32px;

@@ -12,6 +12,8 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -20,20 +22,41 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate successful form submission
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        requirement: "Distribution Panel",
-        message: "",
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitted(true);
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          requirement: "Distribution Panel",
+          message: "",
+        });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      } else {
+        setError(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Failed to submit form. Please check your network connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const phones = [
@@ -272,12 +295,20 @@ export default function Contact() {
                   />
                 </div>
 
+                {error && (
+                  <div className="bg-red-500/10 border border-red-500/30 text-red-500 text-xs p-3 font-sans">
+                    {error}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  disabled={submitted}
-                  className="w-full bg-primary hover:bg-surface-tint text-surface font-sans text-xs font-bold tracking-wider uppercase py-4 transition-colors flex items-center justify-center gap-2 border border-transparent cursor-pointer"
+                  disabled={loading || submitted}
+                  className="w-full bg-primary hover:bg-primary-container text-surface font-sans text-xs font-bold tracking-wider uppercase py-4 transition-colors flex items-center justify-center gap-2 border border-transparent cursor-pointer disabled:opacity-50"
                 >
-                  {submitted ? (
+                  {loading ? (
+                    <>Submitting...</>
+                  ) : submitted ? (
                     <>
                       <Check className="w-4 h-4" /> Message Sent Successfully
                     </>
@@ -288,25 +319,15 @@ export default function Contact() {
               </form>
             </div>
 
-            {/* Styled Map Placeholder */}
-            <div className="bg-surface border border-outline p-4 tech-shadow relative aspect-[21/9] overflow-hidden flex flex-col justify-end">
-              {/* Abstract Blueprint Grid Map Drawing */}
-              <div
-                className="absolute inset-0 z-0 opacity-20"
-                style={{
-                  backgroundImage: "radial-gradient(var(--color-outline) 1px, transparent 1px)",
-                  backgroundSize: "16px 16px",
-                }}
+            {/* Google Map Embed */}
+            <div className="bg-surface border border-outline p-2 tech-shadow relative aspect-[21/9] overflow-hidden flex flex-col justify-end min-h-[300px]">
+              <iframe
+                title="New Grace Electrical Google Map Location"
+                src="https://maps.google.com/maps?q=New%20Grace%20Electrical,%20Sree%20Nagar,%20Behind%20Telephone%20Exchange,%20Hosur&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                className="absolute inset-0 w-full h-full border-0 z-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
+                allowFullScreen
+                loading="lazy"
               />
-              {/* Map roads/routes drawing in SVG lines */}
-              <svg className="absolute inset-0 w-full h-full stroke-outline/30 stroke-[2] fill-none z-0">
-                <line x1="0" y1="50" x2="1000" y2="50" />
-                <line x1="0" y1="120" x2="1000" y2="120" />
-                <line x1="200" y1="0" x2="200" y2="300" />
-                <line x1="500" y1="0" x2="550" y2="300" />
-                <circle cx="530" cy="80" r="4" fill="var(--color-primary)" />
-                <circle cx="200" cy="120" r="4" fill="var(--color-primary)" />
-              </svg>
 
               <div className="relative z-10 flex flex-wrap gap-4 items-center justify-between bg-surface-container/95 border border-outline p-4 backdrop-blur-sm">
                 <div className="flex items-center gap-2">

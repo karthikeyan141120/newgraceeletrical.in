@@ -11,6 +11,7 @@ import {
   Grid,
   Construction,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Services() {
   const services = [
@@ -97,14 +98,18 @@ export default function Services() {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="bg-surface border border-outline p-8 flex flex-col justify-between group hover:border-primary hover:bg-surface transition-all duration-300 tech-shadow"
               >
                 <div>
                   <div className="flex justify-between items-start mb-6">
                     <div className="bg-surface-container p-3 border border-outline group-hover:border-primary/20 group-hover:bg-primary/5 transition-colors">
-                      <Icon className="w-6 h-6 text-secondary group-hover:text-primary transition-colors" />
+                       <Icon className="w-6 h-6 text-secondary group-hover:text-primary transition-colors" />
                     </div>
                     <span className="font-mono text-[10px] font-bold text-secondary opacity-60">
                       {service.code}
@@ -117,7 +122,7 @@ export default function Services() {
                     {service.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

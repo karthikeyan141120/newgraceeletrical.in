@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stage } from "@react-three/drei";
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 import PanelModel from "./PanelModel";
 
 export default function Hero() {
@@ -32,7 +33,12 @@ export default function Hero() {
 
       <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         {/* Left copy column */}
-        <div className="flex-1 space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex-1 space-y-6"
+        >
           <div className="inline-flex items-center gap-2 bg-surface-dim px-3 py-1 border border-outline">
             <ShieldCheck className="w-4 h-4 text-primary" />
             <span className="font-sans text-[10px] font-bold tracking-widest text-on-background uppercase">
@@ -82,10 +88,15 @@ export default function Hero() {
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right 3D Model Column */}
-        <div className="flex-1 w-full max-w-[500px] lg:max-w-none aspect-[4/5] lg:h-[600px] border border-outline bg-surface-container-high relative overflow-hidden tech-shadow flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex-1 w-full max-w-[500px] lg:max-w-none aspect-[4/5] lg:h-[600px] border border-outline bg-surface-container-high relative overflow-hidden tech-shadow flex items-center justify-center"
+        >
           {mounted ? (
             <div className="w-full h-full relative cursor-grab active:cursor-grabbing">
               <Canvas
@@ -147,7 +158,7 @@ export default function Hero() {
               </p>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

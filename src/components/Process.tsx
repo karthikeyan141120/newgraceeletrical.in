@@ -2,6 +2,7 @@
 
 import React from "react";
 import { FileSearch, Scissors, Layers, Rocket, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Process() {
   const steps = [
@@ -53,7 +54,14 @@ export default function Process() {
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <div key={index} className="relative flex flex-col items-center text-center p-6 bg-surface-container border border-outline hover:border-primary transition-all duration-300 tech-shadow group">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative flex flex-col items-center text-center p-6 bg-surface-container border border-outline hover:border-primary transition-all duration-300 tech-shadow group"
+              >
                 {/* Step indicator top right */}
                 <span className="absolute top-4 right-4 font-mono text-xs font-bold text-secondary/40 group-hover:text-primary/40 transition-colors">
                   {step.step}
@@ -77,7 +85,7 @@ export default function Process() {
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 )}
-              </div>
+              </motion.div>
             );
           })}
         </div>
