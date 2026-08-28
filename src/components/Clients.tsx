@@ -1,269 +1,257 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Factory, ShieldCheck, Cpu, Activity, Database, LayoutGrid } from "lucide-react";
+import { Cpu, ShieldCheck, Zap, Activity, Radio, AlertCircle } from "lucide-react";
 
-interface ClientRecord {
+interface SubstationNode {
   id: string;
   name: string;
   slug: string;
   category: "FMCG & Pharma" | "Manufacturing" | "Heavy Industry & Infra";
   project: string;
   voltage: string;
-  capacity: string;
-  status: "COMMISSIONED" | "OPERATIONAL" | "OPTIMIZED";
-  frequency: string;
+  load: string;
+  efficiency: string;
+  thermal: string;
+  status: "ONLINE // SECURE" | "ACTIVE // UNRESTRICTED" | "OPTIMIZED // REGULATED";
 }
 
 export default function Clients() {
-  const [selectedId, setSelectedId] = useState<string>("NGE-01");
-  const [activeTab, setActiveTab] = useState<string>("All");
+  const [selectedId, setSelectedId] = useState<string>("NODE-01");
 
-  const clients: ClientRecord[] = [
-    { id: "NGE-01", name: "Hindustan Unilever", slug: "HUL", category: "FMCG & Pharma", project: "Turnkey Power Panels", voltage: "11 kV", capacity: "3.2 MW", status: "COMMISSIONED", frequency: "50 Hz" },
-    { id: "NGE-02", name: "TTK Prestige", slug: "PRESTIGE", category: "Manufacturing", project: "Motor Control Centers", voltage: "415 V", capacity: "1.8 MW", status: "OPERATIONAL", frequency: "50 Hz" },
-    { id: "NGE-03", name: "Nagarjuna Cement", slug: "NAGARJUNA", category: "Heavy Industry & Infra", project: "High-Voltage VCB Panels", voltage: "33 kV", capacity: "8.5 MW", status: "COMMISSIONED", frequency: "50 Hz" },
-    { id: "NGE-04", name: "Sterling Lab", slug: "STERLING", category: "FMCG & Pharma", project: "Cleanroom Control Boards", voltage: "415 V", capacity: "500 kW", status: "OPTIMIZED", frequency: "50 Hz" },
-    { id: "NGE-05", name: "MEC Systems", slug: "MEC", category: "Manufacturing", project: "Main Distribution Boards", voltage: "415 V", capacity: "1.5 MW", status: "OPERATIONAL", frequency: "50 Hz" },
-    { id: "NGE-06", name: "PG Industries", slug: "PG IND", category: "Manufacturing", project: "Capacitor Banks & APFC", voltage: "415 V", capacity: "1.2 MVAR", status: "OPTIMIZED", frequency: "50 Hz" },
-    { id: "NGE-07", name: "Alubee Diecaster", slug: "ALUBEE", category: "Manufacturing", project: "Machinery Distribution Panels", voltage: "415 V", capacity: "2.2 MW", status: "OPERATIONAL", frequency: "50 Hz" },
-    { id: "NGE-08", name: "Indicarb Ltd", slug: "INDICARB", category: "Heavy Industry & Infra", project: "Furnace Automation Control", voltage: "415 V", capacity: "3.0 MW", status: "COMMISSIONED", frequency: "50 Hz" },
-    { id: "NGE-09", name: "Total Environment", slug: "Heavy Industry & Infra", category: "Heavy Industry & Infra", project: "Residential Main Switchboards", voltage: "11 kV", capacity: "4.5 MW", status: "COMMISSIONED", frequency: "50 Hz" },
-    { id: "NGE-10", name: "Delta CNC", slug: "DELTA", category: "Manufacturing", project: "PLC Automation Cabinets", voltage: "230 V", capacity: "150 kW", status: "OPERATIONAL", frequency: "50 Hz" },
-    { id: "NGE-11", name: "Sree Lakshmi", slug: "LAKSHMI", category: "Manufacturing", project: "Power Distribution Boards", voltage: "415 V", capacity: "800 kW", status: "OPERATIONAL", frequency: "50 Hz" },
-    { id: "NGE-12", name: "Allcargo Logistics", slug: "ALLCARGO", category: "Heavy Industry & Infra", project: "Warehouse Lighting Control", voltage: "415 V", capacity: "400 kW", status: "OPTIMIZED", frequency: "50 Hz" },
-    { id: "NGE-13", name: "Bio Plus", slug: "BIOPLUS", category: "FMCG & Pharma", project: "Instrumentation Enclosures", voltage: "230 V", capacity: "80 kW", status: "OPTIMIZED", frequency: "50 Hz" },
-    { id: "NGE-14", name: "KMS Moulding", slug: "KMS", category: "Manufacturing", project: "Industrial MCC Assemblies", voltage: "415 V", capacity: "1.1 MW", status: "OPERATIONAL", frequency: "50 Hz" },
-    { id: "NGE-15", name: "PKM Granites", slug: "PKM", category: "Heavy Industry & Infra", project: "Crusher Control Panels", voltage: "415 V", capacity: "2.5 MW", status: "COMMISSIONED", frequency: "50 Hz" },
+  const nodes: SubstationNode[] = [
+    { id: "NODE-01", name: "Hindustan Unilever", slug: "HUL", category: "FMCG & Pharma", project: "Turnkey Power Panels", voltage: "11 kV // HT", load: "3.2 MW", efficiency: "98.8%", thermal: "34°C", status: "ONLINE // SECURE" },
+    { id: "NODE-02", name: "TTK Prestige", slug: "PRESTIGE", category: "Manufacturing", project: "Motor Control Centers", voltage: "415 V // LT", load: "1.8 MW", efficiency: "97.4%", thermal: "38°C", status: "ACTIVE // UNRESTRICTED" },
+    { id: "NODE-03", name: "Nagarjuna Cement", slug: "NAGARJUNA", category: "Heavy Industry & Infra", project: "High-Voltage VCB Panels", voltage: "33 kV // HT", load: "8.5 MW", efficiency: "99.1%", thermal: "31°C", status: "ONLINE // SECURE" },
+    { id: "NODE-04", name: "Sterling Lab", slug: "STERLING", category: "FMCG & Pharma", project: "Cleanroom Control Boards", voltage: "415 V // LT", load: "500 kW", efficiency: "98.2%", thermal: "29°C", status: "OPTIMIZED // REGULATED" },
+    { id: "NODE-05", name: "MEC Systems", slug: "MEC", category: "Manufacturing", project: "Main Distribution Switchboards", voltage: "415 V // LT", load: "1.5 MW", efficiency: "97.9%", thermal: "36°C", status: "ACTIVE // UNRESTRICTED" },
+    { id: "NODE-06", name: "PG Industries", slug: "PG IND", category: "Manufacturing", project: "Capacitor Banks & APFC", voltage: "415 V // LT", load: "1.2 MVAR", efficiency: "99.0%", thermal: "32°C", status: "OPTIMIZED // REGULATED" },
+    { id: "NODE-07", name: "Alubee Diecaster", slug: "ALUBEE", category: "Manufacturing", project: "Machinery Distribution Boards", voltage: "415 V // LT", load: "2.2 MW", efficiency: "98.0%", thermal: "41°C", status: "ACTIVE // UNRESTRICTED" },
+    { id: "NODE-08", name: "Indicarb Ltd", slug: "INDICARB", category: "Heavy Industry & Infra", project: "Furnace Automation Panels", voltage: "415 V // LT", load: "3.0 MW", efficiency: "97.6%", thermal: "44°C", status: "ONLINE // SECURE" },
+    { id: "NODE-09", name: "Total Environment", slug: "TOTAL ENV", category: "Heavy Industry & Infra", project: "Residential Main Switchboards", voltage: "11 kV // HT", load: "4.5 MW", efficiency: "99.3%", thermal: "33°C", status: "ONLINE // SECURE" },
+    { id: "NODE-10", name: "Delta CNC", slug: "DELTA", category: "Manufacturing", project: "PLC Control Cabinets", voltage: "230 V // LT", load: "150 kW", efficiency: "96.8%", thermal: "35°C", status: "ACTIVE // UNRESTRICTED" },
+    { id: "NODE-11", name: "Sree Lakshmi", slug: "LAKSHMI", category: "Manufacturing", project: "Power Distribution Switchboards", voltage: "415 V // LT", load: "800 kW", efficiency: "97.2%", thermal: "37°C", status: "ACTIVE // UNRESTRICTED" },
+    { id: "NODE-12", name: "Allcargo Logistics", slug: "ALLCARGO", category: "Heavy Industry & Infra", project: "Warehouse Lighting Control", voltage: "415 V // LT", load: "400 kW", efficiency: "98.4%", thermal: "28°C", status: "OPTIMIZED // REGULATED" },
+    { id: "NODE-13", name: "Bio Plus", slug: "BIOPLUS", category: "FMCG & Pharma", project: "Instrumentation Cabinets", voltage: "230 V // LT", load: "80 kW", efficiency: "97.5%", thermal: "27°C", status: "OPTIMIZED // REGULATED" },
+    { id: "NODE-14", name: "KMS Moulding", slug: "KMS", category: "Manufacturing", project: "Industrial MCC Assemblies", voltage: "415 V // LT", load: "1.1 MW", efficiency: "98.1%", thermal: "39°C", status: "ACTIVE // UNRESTRICTED" },
+    { id: "NODE-15", name: "PKM Granites", slug: "PKM", category: "Heavy Industry & Infra", project: "Crusher Control Panels", voltage: "415 V // LT", load: "2.5 MW", efficiency: "98.5%", thermal: "42°C", status: "ONLINE // SECURE" },
   ];
 
-  const categories = ["All", "FMCG & Pharma", "Manufacturing", "Heavy Industry & Infra"];
-
-  const filteredClients = activeTab === "All"
-    ? clients
-    : clients.filter((c) => c.category === activeTab);
-
-  // Automatically select first record of filtered list if current selection is excluded
-  useEffect(() => {
-    const isSelectedVisible = filteredClients.some((c) => c.id === selectedId);
-    if (!isSelectedVisible && filteredClients.length > 0) {
-      setSelectedId(filteredClients[0].id);
-    }
-  }, [activeTab, filteredClients, selectedId]);
-
-  const activeClient = clients.find((c) => c.id === selectedId) || clients[0];
+  const activeNode = nodes.find((n) => n.id === selectedId) || nodes[0];
 
   return (
-    <section id="clients" className="py-20 border-b border-outline bg-surface-container-low scroll-mt-20">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <section id="clients" className="py-24 border-b border-[#1A1D21] bg-[#080A0C] text-[#E2E8F0] relative overflow-hidden scroll-mt-20">
+      {/* Sci-Fi Grid overlay */}
+      <div 
+        className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #6d7a6e 1px, transparent 1px),
+            linear-gradient(to bottom, #6d7a6e 1px, transparent 1px)
+          `,
+          backgroundSize: "40px 40px"
+        }}
+      />
+      
+      {/* Glowing blur effects */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full filter blur-[120px] pointer-events-none z-0" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#e5a93b]/5 rounded-full filter blur-[100px] pointer-events-none z-0" />
+
+      <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         
-        {/* Top Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        {/* Telemetry Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <span className="text-[10px] font-sans font-bold tracking-widest text-primary uppercase block mb-2">
-              Corporate Associations & Telemetry
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-on-background uppercase tracking-tight">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-2 h-2 bg-emerald-500 rounded-full animate-ping shadow-[0_0_8px_#10b981]" />
+              <span className="font-mono text-[9px] tracking-widest text-primary uppercase font-bold">
+                GRID SYSTEM FEEDBACK // LIVE STATUS OK
+              </span>
+            </div>
+            <h2 className="font-display text-3xl md:text-5xl font-black text-white uppercase tracking-tight">
               Trusted By Industry Leaders
             </h2>
             <div className="w-16 h-1 bg-primary mt-4 mb-6"></div>
-            <p className="font-sans text-xs text-secondary leading-relaxed">
-              We design, test, and manufacture switchgear panels for leading enterprise partners across South India. Interact with the SCADA-inspired system console below to view technical project specs and parameters.
+            <p className="font-sans text-xs text-secondary max-w-xl leading-relaxed">
+              New Grace Electrical manufactures customized, heavy-duty switchgears and panels for multinational brands and heavy infrastructure projects. Select a node to query live parameters.
             </p>
           </div>
 
-          {/* Industry Type Selector */}
-          <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveTab(cat)}
-                className={`px-3 py-1.5 border text-[10px] font-sans font-bold uppercase tracking-wider transition-all duration-150 cursor-pointer ${
-                  activeTab === cat
-                    ? "bg-primary border-primary text-surface"
-                    : "bg-surface border-outline text-secondary hover:border-on-background hover:text-on-background"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="hidden lg:flex items-center gap-6 font-mono text-[9px] text-[#bdcabc]/50 border border-white/5 bg-white/[0.01] px-4 py-3 rounded-sm">
+            <div>
+              <span className="block text-[#e5a93b] font-bold">GRID FREQ</span>
+              <span className="text-white font-bold">50.02 HZ</span>
+            </div>
+            <div className="border-l border-white/10 pl-6">
+              <span className="block text-primary font-bold">ACTIVE NODES</span>
+              <span className="text-white font-bold">{nodes.length} SECURE</span>
+            </div>
           </div>
         </div>
 
-        {/* SCADA Console Grid Layout */}
+        {/* Interactive SCADA Substation Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Left Column: Systems Datatable (Telemetry Matrix) */}
-          <div className="lg:col-span-7 bg-surface border border-outline tech-shadow overflow-hidden flex flex-col justify-between">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-outline bg-surface-container/60 font-mono text-[9px] font-bold text-secondary uppercase tracking-wider">
-                    <th className="py-4 px-4 text-center w-16 border-r border-outline">SYSTEM ID</th>
-                    <th className="py-4 px-4">PARTNER CORPORATION</th>
-                    <th className="py-4 px-4 hidden sm:table-cell">SECTOR</th>
-                    <th className="py-4 px-4 text-right border-l border-outline w-32">VOLTAGE CLASS</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-outline/30 font-sans text-xs">
-                  {filteredClients.map((client) => {
-                    const isSelected = client.id === selectedId;
-                    return (
-                      <tr
-                        key={client.id}
-                        onMouseEnter={() => setSelectedId(client.id)}
-                        onClick={() => setSelectedId(client.id)}
-                        className={`transition-colors duration-150 cursor-pointer group ${
-                          isSelected
-                            ? "bg-primary/5 text-primary font-bold"
-                            : "hover:bg-surface-container/30 text-on-background"
-                        }`}
-                      >
-                        <td className="py-3.5 px-4 text-center font-mono text-[10px] border-r border-outline text-secondary group-hover:text-primary">
-                          {client.id}
-                        </td>
-                        <td className="py-3.5 px-4">
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono text-[10px] font-bold bg-surface-container px-1.5 py-0.5 border border-outline group-hover:border-primary/20">
-                              {client.slug}
-                            </span>
-                            <span className="truncate group-hover:text-primary transition-colors">
-                              {client.name}
-                            </span>
-                          </div>
-                        </td>
-                        <td className="py-3.5 px-4 hidden sm:table-cell text-[10px] text-secondary">
-                          {client.category}
-                        </td>
-                        <td className="py-3.5 px-4 text-right border-l border-outline font-mono font-bold text-[10px]">
-                          {client.voltage}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+          {/* Left Panel: Circuit Node Cards */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            {nodes.map((node) => {
+              const isSelected = node.id === selectedId;
+              return (
+                <div
+                  key={node.id}
+                  onMouseEnter={() => setSelectedId(node.id)}
+                  onClick={() => setSelectedId(node.id)}
+                  className={`relative p-4 border transition-all duration-300 flex flex-col justify-between h-28 cursor-pointer group rounded-sm select-none ${
+                    isSelected
+                      ? "bg-primary/10 border-primary shadow-[0_0_15px_rgba(0,106,56,0.15)] text-white"
+                      : "bg-white/[0.01] border-white/10 hover:border-white/30 text-[#bdcabc]"
+                  }`}
+                >
+                  {/* Status Indicator Led */}
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[8px] font-bold tracking-wider text-secondary/60 group-hover:text-primary transition-colors">
+                      {node.id}
+                    </span>
+                    <span className={`w-1.5 h-1.5 rounded-full ${
+                      node.status.includes("ONLINE")
+                        ? "bg-emerald-500 shadow-[0_0_6px_#10b981]"
+                        : node.status.includes("ACTIVE")
+                        ? "bg-cyan-400 shadow-[0_0_6px_#22d3ee]"
+                        : "bg-amber-400 shadow-[0_0_6px_#facc15]"
+                    }`} />
+                  </div>
 
-            {/* Bottom Status bar */}
-            <div className="bg-surface-container/50 border-t border-outline px-4 py-3 flex items-center justify-between font-mono text-[9px] text-secondary">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-ping inline-block" />
-                SYSTEMS COUNT: {filteredClients.length} UNITS
-              </span>
-              <span className="uppercase">STATUS: SYSTEM OK // 50 HZ</span>
-            </div>
+                  <div>
+                    <span className="font-display text-sm font-black tracking-widest block uppercase truncate leading-none mb-1 group-hover:text-white">
+                      {node.slug}
+                    </span>
+                    <span className="text-[10px] font-sans font-bold block truncate opacity-70 group-hover:opacity-100">
+                      {node.name}
+                    </span>
+                  </div>
+
+                  {/* Corner Accent Brackets */}
+                  <div className={`absolute bottom-0 right-0 w-2 h-2 border-b border-r transition-colors ${
+                    isSelected ? "border-primary" : "border-transparent group-hover:border-white/30"
+                  }`} />
+                </div>
+              );
+            })}
           </div>
 
-          {/* Right Column: Spec Inspector Terminal */}
-          <div className="lg:col-span-5 bg-on-background text-surface border border-on-background p-6 tech-shadow flex flex-col justify-between relative min-h-[350px]">
-            {/* Grid Pattern Backdrop */}
+          {/* Right Panel: Telemetry Substation Inspector */}
+          <div className="lg:col-span-4 bg-[#0B0D0F]/90 border border-white/10 p-6 flex flex-col justify-between relative rounded-sm min-h-[380px] shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+            
+            {/* Blueprint Grid Overlay */}
             <div
-              className="absolute inset-0 opacity-5 pointer-events-none"
+              className="absolute inset-0 opacity-[0.03] pointer-events-none"
               style={{
                 backgroundImage: "radial-gradient(var(--color-surface) 1px, transparent 1px)",
-                backgroundSize: "16px 16px",
+                backgroundSize: "12px 12px",
               }}
             />
 
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeClient.id}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.2 }}
+                key={activeNode.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.15 }}
                 className="relative z-10 flex flex-col justify-between h-full space-y-6"
               >
-                {/* Inspector Header */}
-                <div className="flex justify-between items-start border-b border-surface/20 pb-4">
-                  <div>
-                    <span className="font-mono text-[9px] font-bold text-primary tracking-widest uppercase block mb-1">
-                      ACTIVE SPEC INSPECTOR
+                {/* Header */}
+                <div className="border-b border-white/10 pb-4">
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <Radio className="w-3.5 h-3.5 text-primary animate-pulse" />
+                    <span className="font-mono text-[9px] text-[#bdcabc]/50 tracking-widest uppercase">
+                      GRID DIAGNOSTICS NODE // {activeNode.id}
                     </span>
-                    <h3 className="font-display text-lg font-black tracking-wide text-surface uppercase">
-                      {activeClient.name}
-                    </h3>
                   </div>
-                  <span className="font-mono text-[10px] font-bold border border-primary/40 bg-primary/10 text-primary px-2 py-0.5 rounded-sm">
-                    {activeClient.id}
+                  <h3 className="font-display text-lg font-black tracking-wide text-white uppercase truncate">
+                    {activeNode.name}
+                  </h3>
+                  <span className="font-mono text-[8px] text-[#bdcabc]/40 block uppercase tracking-wider mt-1">
+                    Industry Class: {activeNode.category}
                   </span>
                 </div>
 
-                {/* Technical Specifications Matrix */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-surface/5 border border-surface/10 p-3">
-                    <span className="font-mono text-[8px] text-surface/50 block uppercase tracking-wider">
+                {/* Core Parameters Monitor */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-white/[0.02] border border-white/5 p-3 rounded-sm">
+                    <span className="font-mono text-[8px] text-[#bdcabc]/40 block uppercase tracking-wider">
+                      LOAD BANDWIDTH
+                    </span>
+                    <span className="font-mono text-base font-black text-primary mt-1 block">
+                      {activeNode.load}
+                    </span>
+                  </div>
+                  <div className="bg-white/[0.02] border border-white/5 p-3 rounded-sm">
+                    <span className="font-mono text-[8px] text-[#bdcabc]/40 block uppercase tracking-wider">
                       SYSTEM VOLTAGE
                     </span>
-                    <span className="font-mono text-sm font-black text-primary mt-1 block">
-                      {activeClient.voltage}
+                    <span className="font-mono text-base font-black text-[#e5a93b] mt-1 block">
+                      {activeNode.voltage}
                     </span>
                   </div>
-                  <div className="bg-surface/5 border border-surface/10 p-3">
-                    <span className="font-mono text-[8px] text-surface/50 block uppercase tracking-wider">
-                      LOAD CAPACITY
+                  <div className="bg-white/[0.02] border border-white/5 p-3 rounded-sm">
+                    <span className="font-mono text-[8px] text-[#bdcabc]/40 block uppercase tracking-wider">
+                      EFFICIENCY INDEX
                     </span>
-                    <span className="font-mono text-sm font-black text-primary mt-1 block">
-                      {activeClient.capacity}
-                    </span>
-                  </div>
-                  <div className="bg-surface/5 border border-surface/10 p-3">
-                    <span className="font-mono text-[8px] text-surface/50 block uppercase tracking-wider">
-                      FREQUENCY
-                    </span>
-                    <span className="font-mono text-xs font-bold text-surface mt-1 block">
-                      {activeClient.frequency}
+                    <span className="font-mono text-xs font-bold text-emerald-400 mt-1 block">
+                      {activeNode.efficiency}
                     </span>
                   </div>
-                  <div className="bg-surface/5 border border-surface/10 p-3">
-                    <span className="font-mono text-[8px] text-surface/50 block uppercase tracking-wider">
-                      OPERATION STATUS
+                  <div className="bg-white/[0.02] border border-white/5 p-3 rounded-sm">
+                    <span className="font-mono text-[8px] text-[#bdcabc]/40 block uppercase tracking-wider">
+                      THERMAL TELEMETRY
                     </span>
-                    <span className="font-mono text-xs font-bold text-emerald-400 mt-1 block flex items-center gap-1">
-                      <span className="w-1 h-1 bg-emerald-400 rounded-full animate-pulse" />
-                      {activeClient.status}
+                    <span className="font-mono text-xs font-bold text-white mt-1 block">
+                      {activeNode.thermal}
                     </span>
                   </div>
                 </div>
 
-                {/* Subsystem description */}
-                <div className="bg-surface/5 border border-surface/10 p-4 rounded-sm flex items-start gap-3">
-                  <Cpu className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-mono text-[8px] text-surface/50 block uppercase tracking-wider">
-                      DEPLOYED HARDWARE SYSTEM
+                {/* Active Subsystem */}
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-sm">
+                  <span className="font-mono text-[8px] text-[#bdcabc]/40 block uppercase tracking-wider mb-1">
+                    INTEGRATED SYSTEM HARDWARE
+                  </span>
+                  <div className="flex gap-2.5 items-start">
+                    <Cpu className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span className="font-display text-xs font-bold text-white uppercase leading-snug">
+                      {activeNode.project}
                     </span>
-                    <p className="font-display text-xs font-bold text-surface uppercase mt-1 leading-snug">
-                      {activeClient.project}
-                    </p>
                   </div>
                 </div>
 
-                {/* Blueprint Line Graphic */}
-                <div className="border-t border-surface/10 pt-4 flex flex-col justify-end">
+                {/* Animated Telemetry Path Diagram */}
+                <div className="border-t border-white/10 pt-4">
                   <svg className="w-full h-8 stroke-primary/30 stroke-[1.5] fill-none">
-                    <path d="M 0,16 L 80,16 L 100,5 L 200,5 L 220,27 L 320,27 L 340,16 L 500,16" />
+                    <path d="M 0,16 L 60,16 L 80,5 L 180,5 L 200,27 L 280,27 L 300,16 L 400,16" />
                     <motion.circle
                       cx="0"
                       cy="16"
-                      r="3"
+                      r="3.5"
                       fill="var(--color-primary)"
+                      className="shadow-[0_0_8px_var(--color-primary)]"
                       animate={{
-                        cx: [0, 80, 100, 200, 220, 320, 340, 400],
+                        cx: [0, 60, 80, 180, 200, 280, 300, 400],
                         cy: [16, 16, 5, 5, 27, 27, 16, 16]
                       }}
                       transition={{
-                        duration: 3,
+                        duration: 2.5,
                         repeat: Infinity,
                         ease: "linear"
                       }}
                     />
                   </svg>
-                  <div className="flex justify-between items-center font-mono text-[8px] text-surface/40 mt-1 uppercase">
-                    <span>GRID CAPABILITY</span>
-                    <span>TANGEDCO COMPLIANT</span>
+                  <div className="flex justify-between items-center font-mono text-[8px] text-[#bdcabc]/30 mt-1 uppercase">
+                    <span className="flex items-center gap-1">
+                      <AlertCircle className="w-2.5 h-2.5 text-[#e5a93b]" />
+                      NODE STATE: {activeNode.status}
+                    </span>
                   </div>
                 </div>
               </motion.div>
