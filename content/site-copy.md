@@ -60,8 +60,7 @@
 
 ## Contact Information
 - **Proprietor**: A. Thangavel
-- **Mobile Numbers**: +91 97869 83972 / +91 84891 85157 / +91 88384 54514
+- **Mobile Number**: +91 97869 83972
 - **Email**: newgraceeletrical@gmail.com
 - **Website**: www.newgraceeletrical.in
-- **Head Office (H.O)**: Plot No.46 New SIDCO Industrial Estate, SREE NAGAR, Behind Telephone Exchange, Hosur - 635 109.
-- **Branch**: Sy.No. 571/1B, Shed No.1, SREE NAGAR, Behind SAI BABA Temple, Hosur - 635 109.
+- **Facility Address**: Sy.No.44/2Q4, Plot No.30, East Plot, Govinda agraharam, Rajeshwari Layout, Hosur - 635 126 Krishnagiri district, Tamil Nadu, India.

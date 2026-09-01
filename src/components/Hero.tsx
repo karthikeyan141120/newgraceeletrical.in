@@ -46,10 +46,13 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-on-background leading-tight uppercase">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-on-background leading-[1.15] uppercase tracking-tight">
             Engineering the <br />
-            <span className="text-primary bg-primary/10 px-2 border-l-4 border-primary inline-block mt-2">
-              Power Grid
+            <span className="inline-block mt-3">
+              <span className="inline-flex items-center gap-3 bg-primary text-white px-5 py-2 border-2 border-on-background shadow-[4px_4px_0px_#1a1c1a]">
+                <span className="font-black tracking-wider">Power Grid</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-accent border border-on-background" />
+              </span>
             </span>
           </h1>
 

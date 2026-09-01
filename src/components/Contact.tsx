@@ -60,10 +60,7 @@ export default function Contact() {
   };
 
   const phones = [
-    "+91 97869 83972",
-    "+91 84388 41784",
-    "+91 84891 85157",
-    "+91 88384 54514"
+    "+91 97869 83972"
   ];
 
   return (
@@ -165,7 +162,7 @@ export default function Contact() {
                       Rajeshwari Layout Facility
                     </h4>
                     <p className="font-sans text-xs text-secondary leading-relaxed mt-1">
-                      Sy.No.44/Q4, Plot No.30, Rajeshwari Layout, Hosur - 635 126, Tamil Nadu, India.
+                      Sy.No.44/2Q4, Plot No.30, East Plot, Govinda agraharam, Rajeshwari Layout, Hosur - 635 126, Krishnagiri District, Tamil Nadu, India.
                     </p>
                   </div>
                 </div>
@@ -299,7 +296,7 @@ export default function Contact() {
             <div className="bg-surface border border-outline p-2 tech-shadow relative aspect-[21/9] overflow-hidden flex flex-col justify-end min-h-[300px]">
               <iframe
                 title="New Grace Electrical Google Map Location"
-                src="https://maps.google.com/maps?q=Rajeshwari%20Layout,%20Hosur,%20Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=12.774218,77.798890&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 className="absolute inset-0 w-full h-full border-0 z-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
                 allowFullScreen
                 loading="lazy"
@@ -309,11 +306,11 @@ export default function Contact() {
                 <div className="flex items-center gap-2">
                   <div className="w-2.5 h-2.5 bg-primary animate-ping rounded-full inline-block" />
                   <span className="font-display text-[10px] font-bold text-on-background uppercase tracking-wide">
-                    RAJESHWARI LAYOUT, HOSUR, INDIA
+                    RAJESHWARI LAYOUT FACILITY, HOSUR
                   </span>
                 </div>
                 <a
-                  href="https://maps.google.com/?q=Rajeshwari+Layout+Hosur"
+                  href="https://www.google.com/maps?q=12.774218,77.798890"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-sans text-[10px] font-bold text-primary hover:underline uppercase"

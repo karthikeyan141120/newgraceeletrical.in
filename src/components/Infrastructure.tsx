@@ -114,21 +114,55 @@ export default function Infrastructure() {
 
         {/* Two Column Layout: Slide 3 image checklist + Masonry Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Official PPT Infrastructure List Image */}
+          {/* Left Column: Infrastructure Facility Showcase (Merge & Merge1) */}
           <div className="lg:col-span-4 sticky top-28 space-y-6">
-            <div className="bg-surface border border-outline p-6 tech-shadow">
-              <span className="text-[10px] font-sans font-bold tracking-widest text-primary uppercase block mb-3">
-                In-House Infrastructure List
-              </span>
-              <div className="aspect-[3/4] w-full overflow-hidden relative border border-outline bg-surface-container-high mb-6">
-                <Image
-                  src="/images/slide3_infra.png"
-                  alt="In-House Infrastructure Checklist"
-                  fill
-                  className="object-cover filter contrast-115 brightness-95"
-                />
+            <div className="bg-surface border border-outline p-6 tech-shadow space-y-6">
+              <div>
+                <span className="text-[10px] font-sans font-bold tracking-widest text-primary uppercase block mb-1">
+                  In-House Infrastructure List
+                </span>
+                <h3 className="font-display text-sm font-bold text-on-background uppercase tracking-wide">
+                  Facility Equipment Overview
+                </h3>
               </div>
-              <p className="font-sans text-xs text-secondary leading-relaxed">
+
+              {/* Merge Photo 1 */}
+              <div className="space-y-2">
+                <div className="aspect-[4/3] w-full overflow-hidden relative border border-outline bg-surface-container-high group">
+                  <Image
+                    src="/images/imageprocess/merge.jpeg"
+                    alt="Muratec Vectrum 2048 48 Station Turret Punching Machine"
+                    fill
+                    className="object-cover contrast-110 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-2 left-2 bg-on-background/90 text-surface text-[9px] font-sans font-bold tracking-wider px-2 py-0.5 uppercase max-w-[90%] truncate">
+                    Muratec Vectrum 2048
+                  </div>
+                </div>
+                <h4 className="font-display text-xs font-bold text-on-background uppercase tracking-wide leading-tight">
+                  Muratec Vectrum 2048 48 Station Turret Punching Machine
+                </h4>
+              </div>
+
+              {/* Merge Photo 2 */}
+              <div className="space-y-2">
+                <div className="aspect-[4/3] w-full overflow-hidden relative border border-outline bg-surface-container-high group">
+                  <Image
+                    src="/images/imageprocess/merge1.jpeg"
+                    alt="Hydraulic Press Brake Machine"
+                    fill
+                    className="object-cover contrast-110 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-2 left-2 bg-on-background/90 text-surface text-[9px] font-sans font-bold tracking-wider px-2 py-0.5 uppercase">
+                    Hydraulic Press Brake
+                  </div>
+                </div>
+                <h4 className="font-display text-xs font-bold text-on-background uppercase tracking-wide leading-tight">
+                  Hydraulic Press Brake Machine
+                </h4>
+              </div>
+
+              <p className="font-sans text-xs text-secondary leading-relaxed pt-2 border-t border-outline/50">
                 NGE's certified in-house tooling line-up ensures that every enclosure fabrication, press-bend operation, and welding task is verified to strict tolerances in our Hosur facility.
               </p>
             </div>

@@ -22,13 +22,13 @@ export default function Products() {
 
   const products: Product[] = [
     {
-      id: "mv-panel",
-      name: "MV Panel",
-      shortDesc: "Medium Voltage Panel boards for utility routing.",
+      id: "mv-panel-board",
+      name: "MV Panel Board",
+      shortDesc: "Medium Voltage Panel boards custom-engineered for utility routing.",
       voltage: "11 kV to 33 kV",
-      chassis: "NEMA 3R / IP55",
+      chassis: "IP55 / Compartmentalized",
       rating: "Up to 3150A",
-      image: "/images/slide4_panel_row.png",
+      image: "/images/imageprocess/MV Panel board.jpeg",
       specs: [
         "Rated Voltage: 11 kV - 33 kV",
         "Short Time Current: 26.3 kA for 3 sec",
@@ -44,79 +44,13 @@ export default function Products() {
       ],
     },
     {
-      id: "vcb-panel",
-      name: "VCB Panel",
-      shortDesc: "Vacuum Circuit Breaker panels for high-tension lines.",
-      voltage: "12 kV to 36 kV",
-      chassis: "IP42 / Indoor",
-      rating: "630A to 2000A",
-      image: "/images/slide4_panel_row.png",
-      specs: [
-        "Rated Voltage: 12 kV - 36 kV",
-        "Impulse Withstand: 75 kV / 170 kV",
-        "Breaking Capacity: 25 kA / 40 kA",
-        "Chamber Division: Air insulated, VCB draw-out",
-        "Interlocking: Mechanical and Electrical",
-      ],
-      features: [
-        "Maintenance-free vacuum interrupters",
-        "Cassette-type draw-out breaker mechanism",
-        "Earth switch with quick-make mechanism",
-        "Integrated surge suppressors",
-      ],
-    },
-    {
-      id: "dist-panel",
-      name: "Distribution Panel",
-      shortDesc: "Main distribution boards for plant power subdivision.",
-      voltage: "415 V to 690 V",
-      chassis: "Form 4b / IP54",
-      rating: "Up to 6300A",
-      image: "/images/slide4_panel_row.png",
-      specs: [
-        "Rated Voltage: 415 V - 690 V AC",
-        "Busbar System: Tinned Copper / Aluminum busbars",
-        "Short Circuit Rating: 50 kA / 85 kA for 1 sec",
-        "Sheet Steel Thickness: 2.0 mm structural chassis",
-        "Cable Entry: Top or Bottom (Customizable)",
-      ],
-      features: [
-        "Modular construction with customizable expansion slots",
-        "Separate cable alleys for safe maintenance access",
-        "High mechanical strength to withstand electro-dynamic forces",
-        "Air Circuit Breakers (ACB) integration",
-      ],
-    },
-    {
-      id: "ssb-switch",
-      name: "SSB Switch",
-      shortDesc: "Sub Main Switch Boards for mid-tier facility feeders.",
-      voltage: "415 V AC",
-      chassis: "Form 2b / IP42",
-      rating: "400A to 1600A",
-      image: "/images/slide3_1.jpg",
-      specs: [
-        "Rated Voltage: 415 V",
-        "Insulation Voltage: 1000 V",
-        "Short Circuit: 35 kA for 1 sec",
-        "Mounting: Floor or Wall mount options",
-        "Paint Finish: Siemens Grey structure (RAL 7032 / 7035)",
-      ],
-      features: [
-        "Compact footprint optimizing spatial constraints",
-        "Clear technical labeling for easy operations",
-        "Equipped with molded case circuit breakers (MCCB)",
-        "Pre-wired terminal blocks for quick site integration",
-      ],
-    },
-    {
       id: "mcc-panel",
-      name: "MCC Panel",
-      shortDesc: "Motor Control Centers with DOL/Star-Delta feeds.",
+      name: "Motor Control Center (MCC)",
+      shortDesc: "Heavy-duty Motor Control Centers with draw-out & fixed starter feeds.",
       voltage: "415 V AC",
       chassis: "Form 3b / IP54",
       rating: "Draw-out & Fixed",
-      image: "/images/slide4_panel_row.png",
+      image: "/images/imageprocess/Motor control center MCC.jpeg",
       specs: [
         "Rated Voltage: 415 V",
         "Feeder Types: DOL / Star-Delta / Reversing",
@@ -132,47 +66,105 @@ export default function Products() {
       ],
     },
     {
-      id: "control-panel",
-      name: "Control Panel",
-      shortDesc: "Automation and relay desks housing PLCs and controllers.",
-      voltage: "24V DC / 230V AC",
-      chassis: "Rittal Type / IP52",
-      rating: "Custom Control Load",
-      image: "/images/slide3_1.jpg",
+      id: "power-grid-66kv",
+      name: "66kV Power Grid & Pump House",
+      shortDesc: "Substation power grid erection, commissioning, and high-voltage pump house infrastructure.",
+      voltage: "66 kV High Voltage",
+      chassis: "Heavy Industrial Outdoor",
+      rating: "Grid Capacity",
+      image: "/images/imageprocess/Power grid Erection and commissioning 66kv Pump House.jpeg",
       specs: [
-        "Control Voltage: 24 V DC / 110 V AC / 230 V AC",
-        "Wiring Standard: PVC insulated multi-strand copper wires",
-        "PLC Brands: Siemens / Schneider / Rockwell Integration",
-        "HMI Screen Sizes: 7-inch to 15-inch Touch Panels",
-        "Terminals: DIN Rail mounted clip-on type",
+        "System Voltage: Up to 66 kV",
+        "Execution Scope: Erection, Testing, and Commissioning",
+        "Application: Heavy Industrial Pump Stations & Utility Substations",
+        "Compliance: TANGEDCO / CEIG Guidelines",
       ],
       features: [
-        "Detailed wire ferrule numbering matching electrical drawings",
-        "Isolated signal lines preventing electromagnetic noise",
-        "Integrated cooling fans with washable filter media",
-        "Emergency stop relays and safety overrides",
+        "Turnkey engineering review and single-line diagram implementation",
+        "High-voltage safety interlocking and surge protection",
+        "Comprehensive site testing and handover documentation",
       ],
     },
     {
-      id: "vfd-panel",
-      name: "VFD Panel",
-      shortDesc: "Variable Frequency Drive boards for pump/fan controls.",
+      id: "solar-acdb",
+      name: "Solar AC Distribution Box (ACDB)",
+      shortDesc: "Specialized solar AC distribution boxes for renewable energy power collection.",
       voltage: "415 V AC",
-      chassis: "IP54 / Forced Air",
-      rating: "1.5 kW to 500 kW",
-      image: "/images/slide3_1.jpg",
+      chassis: "Outdoor IP65",
+      rating: "Up to 1000A",
+      image: "/images/imageprocess/Solar Alternating Current Distribution Box (ACDB).jpeg",
       specs: [
-        "Drive Power: 1.5 kW - 500 kW",
-        "Harmonics Level: Meets IEEE 519 standards",
-        "Chassis Layout: Enclosed with external bypass controls",
-        "Reactors: Line & Load reactors integrated",
-        "Cooling System: Temperature-controlled exhaust fans",
+        "Rated Voltage: 415 V AC",
+        "Protection Degree: IP65 Outdoor Weatherproof",
+        "Components: MCCB / ACB, Surge Protection Devices (SPD)",
+        "Enclosure: Powder Coated Sheet Steel / FRP",
       ],
       features: [
-        "Soft-start and dynamic acceleration/deceleration control",
-        "Harmonic distortion filtration protecting upstream lines",
-        "Manual bypass switch allowing offline drive maintenance",
-        "Energy savings readout display integration",
+        "Integrated Type 2 SPD for solar surge suppression",
+        "Clear metering window for energy generation inspection",
+        "High UV resistance and thermal dissipation design",
+      ],
+    },
+    {
+      id: "solar-dc-jb",
+      name: "Solar DC Power Junction Box (JB)",
+      shortDesc: "High-reliability DC combiner and junction boxes for solar PV arrays.",
+      voltage: "1000V / 1500V DC",
+      chassis: "IP65 Weatherproof",
+      rating: "Multi-string Input",
+      image: "/images/imageprocess/Solar DC power JB.jpeg",
+      specs: [
+        "Max Operating Voltage: 1000 V / 1500 V DC",
+        "Protection: DC Fuses, DC Disconnector, DC SPD",
+        "String Count: Custom multi-in multi-out array options",
+        "Enclosure Material: Polycarbonate / Powder-coated mild steel",
+      ],
+      features: [
+        "High-density DC fuse protection for array strings",
+        "Integrated load break DC isolator switch",
+        "Hermetically sealed cable glands preventing ingress",
+      ],
+    },
+    {
+      id: "ssb-board",
+      name: "Sub Switch Board (SSB)",
+      shortDesc: "Sub Main Switch Boards for mid-tier industrial and commercial feeder networks.",
+      voltage: "415 V AC",
+      chassis: "Form 2b / IP42",
+      rating: "400A to 1600A",
+      image: "/images/imageprocess/Sub Switch Board SSB.jpeg",
+      specs: [
+        "Rated Voltage: 415 V",
+        "Insulation Voltage: 1000 V",
+        "Short Circuit: 35 kA for 1 sec",
+        "Mounting: Floor or Wall mount options",
+        "Paint Finish: Siemens Grey structure (RAL 7032 / 7035)",
+      ],
+      features: [
+        "Compact footprint optimizing spatial constraints",
+        "Clear technical labeling for easy operations",
+        "Equipped with molded case circuit breakers (MCCB)",
+        "Pre-wired terminal blocks for quick site integration",
+      ],
+    },
+    {
+      id: "transformer-vcb",
+      name: "Transformer & VCB Panel",
+      shortDesc: "Vacuum Circuit Breaker panels and power transformer integration systems.",
+      voltage: "11 kV to 33 kV",
+      chassis: "Metal-Clad IP54",
+      rating: "630A to 2000A",
+      image: "/images/imageprocess/Transformer and VCB.jpeg",
+      specs: [
+        "Rated Voltage: 11 kV - 33 kV",
+        "Impulse Withstand: 75 kV / 170 kV",
+        "Breaking Capacity: 25 kA / 40 kA",
+        "Breaker Type: Cassette draw-out VCB mechanism",
+      ],
+      features: [
+        "Maintenance-free vacuum interrupters",
+        "Direct integration with step-down power transformers",
+        "Integrated surge suppressors and numerical relay protection",
       ],
     },
   ];
@@ -210,7 +202,7 @@ export default function Products() {
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover grayscale contrast-125 transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                 />
                 <div className="absolute top-3 left-3 bg-on-background text-surface text-[10px] font-sans font-bold tracking-wider px-2.5 py-1 uppercase">
                   {product.voltage}
@@ -284,7 +276,7 @@ export default function Products() {
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
                   fill
-                  className="object-cover grayscale contrast-125"
+                  className="object-cover contrast-110"
                 />
                 <div className="absolute bottom-4 left-4 bg-on-background/90 text-surface text-xs font-sans font-bold tracking-wider px-3.5 py-1.5 uppercase border border-outline">
                   {selectedProduct.voltage}

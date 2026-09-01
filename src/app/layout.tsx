@@ -41,16 +41,16 @@ const jsonLd = {
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Plot No.46 New SIDCO Industrial Estate, SREE NAGAR, Behind Telephone Exchange",
+    "streetAddress": "Sy.No.44/2Q4, Plot No.30, East Plot, Govinda agraharam, Rajeshwari Layout",
     "addressLocality": "Hosur",
     "addressRegion": "Tamil Nadu",
-    "postalCode": "635109",
+    "postalCode": "635126",
     "addressCountry": "IN"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 12.7409,
-    "longitude": 77.8253
+    "latitude": 12.774218,
+    "longitude": 77.798890
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
