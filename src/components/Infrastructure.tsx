@@ -135,9 +135,6 @@ export default function Infrastructure() {
                     fill
                     className="object-cover contrast-110 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-2 left-2 bg-on-background/90 text-surface text-[9px] font-sans font-bold tracking-wider px-2 py-0.5 uppercase max-w-[90%] truncate">
-                    Muratec Vectrum 2048
-                  </div>
                 </div>
                 <h4 className="font-display text-xs font-bold text-on-background uppercase tracking-wide leading-tight">
                   Muratec Vectrum 2048 48 Station Turret Punching Machine
@@ -153,9 +150,6 @@ export default function Infrastructure() {
                     fill
                     className="object-cover contrast-110 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-2 left-2 bg-on-background/90 text-surface text-[9px] font-sans font-bold tracking-wider px-2 py-0.5 uppercase">
-                    Hydraulic Press Brake
-                  </div>
                 </div>
                 <h4 className="font-display text-xs font-bold text-on-background uppercase tracking-wide leading-tight">
                   Hydraulic Press Brake Machine
@@ -168,36 +162,20 @@ export default function Infrastructure() {
             </div>
           </div>
 
-          {/* Right Column: Masonry Tiled Photo Grid */}
+          {/* Right Column: Masonry Tiled Photo Grid (Pure Images Only) */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 auto-rows-[280px]">
             {facilityItems.map((item, index) => (
               <div
                 key={index}
-                className={`group bg-surface-container-high border border-outline relative overflow-hidden tech-shadow flex flex-col justify-end ${item.gridSpan}`}
+                className={`group bg-surface-container-high border border-outline relative overflow-hidden tech-shadow ${item.gridSpan}`}
               >
-                {/* Image */}
+                {/* Image Only */}
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 contrast-110"
                 />
-
-                {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-on-background/90 via-on-background/40 to-transparent z-10" />
-
-                {/* Info Overlay */}
-                <div className="relative z-20 p-6 space-y-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="bg-primary text-surface text-[9px] font-sans font-bold tracking-widest px-2 py-0.5 uppercase inline-block">
-                    {item.category}
-                  </span>
-                  <h3 className="font-display text-base font-bold text-surface uppercase">
-                    {item.title}
-                  </h3>
-                  <p className="font-sans text-[11px] text-surface-dim opacity-0 group-hover:opacity-100 transition-opacity duration-500 leading-relaxed max-w-md">
-                    {item.desc}
-                  </p>
-                </div>
               </div>
             ))}
           </div>
